@@ -1,36 +1,30 @@
 {
   "compilerOptions": {
-    // Diretórios de entrada e saída
     "rootDir": "./src",
     "outDir": "./dist",
 
-    // Ambiente Node.js com suporte a ESM
     "module": "esnext",
     "moduleResolution": "bundler",
     "target": "esnext",
     "lib": ["esnext"],
     "types": ["node"],
 
-    // Suporte a import/export moderno
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "moduleDetection": "force",
 
-    // Geração de arquivos auxiliares
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
 
-    // Regras de verificação mais rígidas
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noUncheckedSideEffectImports": true,
 
-    // JSX (caso use React futuramente)
     "jsx": "react-jsx",
-
-    // Performance
     "skipLibCheck": true
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

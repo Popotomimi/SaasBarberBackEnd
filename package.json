@@ -2,7 +2,7 @@
   "name": "saasbarberbackend",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
     "build": "tsc",
