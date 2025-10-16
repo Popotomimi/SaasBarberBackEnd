@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { qrEvents, isReady } from "./whatsapp";
+import { qrEvents, isReady } from "./whatsapp.js";
 
 const router = Router();
 
