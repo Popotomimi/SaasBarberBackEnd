@@ -10,7 +10,7 @@ export const client = new Client({
   puppeteer: { headless: true, args: ["--no-sandbox"] },
 });
 
-client.on("qr", async (qr) => {
+client.on("qr", async (qr: string) => {
   const qrImage = await qrcode.toDataURL(qr);
   qrEvents.emit("qr", qrImage);
 });
