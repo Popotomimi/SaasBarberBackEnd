@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { qrEvents, isReady } from "./whatsapp.js";
+import { qrEvents, isReady, sendWhatsAppMessage } from "./whatsapp.js";
 
 const router = Router();
 
@@ -23,6 +23,24 @@ router.get("/qrcode", (req, res) => {
   }
 
   return res.json({ status: "inicializando..." });
+});
+
+router.post("/send-message", async (req, res) => {
+  const { message, number } = req.body;
+
+  if (!message || !number) {
+    return res
+      .status(400)
+      .json({ error: "Mensagem e número são obrigatórios" });
+  }
+
+  try {
+    await sendWhatsAppMessage(message, number);
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Erro ao enviar mensagem:", err);
+    return res.status(500).json({ error: "Falha ao enviar mensagem" });
+  }
 });
 
 export default router;

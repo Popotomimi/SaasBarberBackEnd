@@ -22,3 +22,10 @@ client.on("ready", () => {
 });
 
 client.initialize();
+
+export async function sendWhatsAppMessage(message: string, number: string) {
+  if (!isReady) throw new Error("WhatsApp não está pronto");
+
+  const chatId = number.replace(/\D/g, "") + "@c.us";
+  await client.sendMessage(chatId, message);
+}
