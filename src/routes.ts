@@ -25,6 +25,10 @@ router.get("/qrcode", (req, res) => {
   return res.json({ status: "inicializando..." });
 });
 
+router.get("/server", (req, res) => {
+  return res.json({ status: "Servidor online ✅" });
+});
+
 router.post("/send-message", async (req, res) => {
   const { message, number } = req.body;
 
